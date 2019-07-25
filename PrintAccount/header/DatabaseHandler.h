@@ -51,7 +51,7 @@ public:
 	SQLRETURN retcode;
 
 	void db_connect();									//connection to database
-	void query();										//sql query maker
+	void query(std::string);										//sql query maker
 	void get_error(unsigned int, const SQLHANDLE&);		//error output
 
 

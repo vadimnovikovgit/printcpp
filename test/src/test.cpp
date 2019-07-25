@@ -5,7 +5,8 @@
 int main()
 {
 	setlocale(LC_ALL, "Russian");
-	database_handler db("HELL\\MY_DB", "Cartriges", "","", true);
+	database_handler db;
 	db.db_connect();
+	db.query("yo");
 
 }

@@ -35,8 +35,27 @@ void database_handler::db_connect()
 
 
 	switch (SQLDriverConnect(sqlconnectionhandle, NULL,
-		(SQLCHAR*)"DRIVER={SQL Server};SERVER=localhost, 1433;DATABASE=MyDatabase;UID=sa;PWD=Admin-123;",
+		/*(SQLCHAR*)("DRIVER={SQL Server};SERVER="+m_dbServer+";DATABASE="+m_dbName+";").c_str(),*/
+		(SQLCHAR*)"DRIVER={SQL Server};SERVER=HELL\\MY_DB2;DATABASE=Cartriges;Trusted_connection=yes;",
 		SQL_NTS, retconstring, 1024, NULL, SQL_DRIVER_NOPROMPT))
+	{
+	case SQL_SUCCESS_WITH_INFO:
+		get_error(SQL_HANDLE_DBC, sqlconnectionhandle);
+			break;
+	case SQL_INVALID_HANDLE:
+	case SQL_ERROR:
+		get_error(SQL_HANDLE_DBC, sqlconnectionhandle);
+		retcode = -1;
+		break;
+	default:
+		break;
+	}
+
+}
+
+void database_handler::query(std::string query)
+{
+	switch(SQLExecDirect(sqlstatementhandle, (SQLCHAR*)"create table cars( model varchar(20) )", SQL_NTS))
 	{
 	case SQL_SUCCESS_WITH_INFO:
 		get_error(SQL_HANDLE_DBC, sqlconnectionhandle);
@@ -49,5 +68,7 @@ void database_handler::db_connect()
 	default:
 		break;
 	}
+	
+
 
 }
