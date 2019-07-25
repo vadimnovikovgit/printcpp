@@ -1,5 +1,2 @@
-﻿  DatabaseHandler.h
-  DatabaseHandler.cpp
-  Создание кода...
-D:\sources\PAcpp\PrintAccount\output\PrintAccount\compile\Win32\Debug\DatabaseHandler.obj : warning LNK4042: юс·хъЄ єърчрэ сюыхх юфэюую Ёрчр; ыш°эшх эх єўшЄ√тр■Єё
-  PrintAccount.vcxproj -> D:\sources\PAcpp\PrintAccount\output\PrintAccount\bin\Win32\Debug\PrintAccount.lib
+﻿  DatabaseHandler.cpp
+  PrintAccount.vcxproj -> D:\SOURSE\PrintAccount\printcpp\output\PrintAccount\bin\Win32\Debug\PrintAccount.lib

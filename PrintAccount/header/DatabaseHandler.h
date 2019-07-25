@@ -14,16 +14,12 @@ class database_handler
 	std::string		m_pwd;
 	bool			m_auth;
 
-	SQLHANDLE sqlenvhandle;    
-	SQLHANDLE sqlconnectionhandle;
-	SQLHANDLE sqlstatementhandle;
-	SQLRETURN retcode;
+
 	
 public:
 	//Constructors-Destructors-----------------------------------------------
 	database_handler();
-	database_handler(std::string, std::string, std::string, std::string, bool);
-	~database_handler();
+	database_handler(std::string server , std::string dbname, std::string login, std::string pwd, bool auth);
 	//-----------------------------------------------------------------------
 
 
@@ -49,11 +45,14 @@ public:
 
 	//database methods--------------------------------------------------------
 
+	SQLHANDLE sqlenvhandle;
+	SQLHANDLE sqlconnectionhandle;
+	SQLHANDLE sqlstatementhandle;
+	SQLRETURN retcode;
 
-
-	void db_connect();
-	void query();
-	void get_error();
+	void db_connect();									//connection to database
+	void query();										//sql query maker
+	void get_error(unsigned int, const SQLHANDLE&);		//error output
 
 
 
